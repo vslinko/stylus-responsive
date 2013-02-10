@@ -1,0 +1,15 @@
+{
+    "name": "stylus-responsive",
+    "version": "0.0.1",
+    "description": "Responsive mixin for stylus",
+    "keywords": ["stylus", "responsive", "retina"],
+    "author": {
+        "name": "Vyacheslav Slinko",
+        "email": "vyacheslav.slinko@gmail.com"
+    },
+    "main": "stylus-responsive",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rithis/stylus-responsive"
+    }
+}

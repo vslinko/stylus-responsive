@@ -1,0 +1,63 @@
+same = false
+
+-image(name)
+    background-image url("/images/" + name + ".png")
+
+-image-2x(name)
+    size = image-size("/images/" + name + ".png")
+
+    .backgroundsize &
+        background-image url("/images/" + name + "@2x.png")
+        background-size size[0] size[1]
+
+-image-browser(name)
+    -image name
+    @media all and (-webkit-min-device-pixel-ratio: 1.5)
+        -image-2x name
+
+-image-tablet(name)
+    @media all and (max-width: 979px)
+        -image name
+    @media all and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 979px)
+        -image-2x name
+
+-image-phone(name)
+    @media all and (max-width: 767px)
+        -image name
+    @media all and (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 767px)
+        -image-2x name
+
+image(name)
+    -image name
+
+-image-responsive(browser-value, tablet-value, phone-value = same)
+    -image-browser browser-value
+
+    if tablet-value is not same and tablet-value != browser-value
+        -image-tablet tablet-value
+    
+    if phone-value is not same and phone-value != tablet-value
+        -image-phone phone-value
+
+browser(name, value)
+    add-property name, value
+
+tablet(name, value)
+    @media (max-width: 979px)
+        add-property name, value
+
+phone(name, value)
+    @media (max-width: 767px)
+        add-property name, value
+
+responsive(name, browser-value, tablet-value, phone-value = same)
+    if s("%s", name) == "image"
+        -image-responsive browser-value tablet-value phone-value
+    else
+        browser name browser-value
+        
+        if tablet-value is not same and tablet-value != browser-value
+            tablet name tablet-value
+        
+        if phone-value is not same and phone-value != tablet-value
+            phone name phone-value
