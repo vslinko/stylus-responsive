@@ -61,3 +61,8 @@ responsive(name, browser-value, tablet-value, phone-value = same)
         
         if phone-value is not same and phone-value != tablet-value
             phone name phone-value
+
+svg(name)
+    .svg &
+        background-image url("/images/" + name + ".svg") !important
+        background-size 100%

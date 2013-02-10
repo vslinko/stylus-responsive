@@ -1,6 +1,6 @@
 {
     "name": "stylus-responsive",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Responsive mixin for stylus",
     "keywords": ["stylus", "responsive", "retina"],
     "author": {
